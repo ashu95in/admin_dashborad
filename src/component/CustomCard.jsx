@@ -11,7 +11,7 @@ const CustomCard = ({ title, description, onDelete, onUpdate, onShowMore }) => {
         <Typography  gutterBottom sx={{fontWeight:500,fontSize:'1.1rem'}} >
           {title}
         </Typography>
-        <Typography variant="p" color="text.secondary" sx={{fontSize:".9rem"}} >
+        <Typography variant="p" color="text.secondary" sx={{fontSize:".9rem",border:1,borderColor:'#fff'}} >
           {description}
         </Typography>
       </CardContent>

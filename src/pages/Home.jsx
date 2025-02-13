@@ -1,14 +1,11 @@
-import { Box, TextField, InputAdornment, Skeleton } from "@mui/material";
+import { Box, TextField, InputAdornment, Skeleton,Typography } from "@mui/material";
 import User_avtar from "../component/user_avtar";
 import SearchIcon from "@mui/icons-material/Search";
 import CustomCard from "../component/CustomCard";
 import { useEffect, useState } from "react";
 import { hitDateApi } from "../api/dataApi";
-import PersonIcon from '@mui/icons-material/Person';
-import LocalActivityIcon from '@mui/icons-material/LocalActivity';
-import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
-import HistoryIcon from '@mui/icons-material/History';
-import BorderColorIcon from '@mui/icons-material/BorderColor';
+import DashboardCard from "../component/card/DashboardCard";
+import SideBar from '../component/SideBar'
 const Homepage = () => {
   const [data, setData] = useState([]); // ✅ Initialize as an empty array
   const [isLoading, setIsloading] = useState(true);
@@ -33,29 +30,10 @@ const Homepage = () => {
 
   return (
     <Box sx={style.container}>
-      {/* Sidebar */}
-      <Box
-        sx={{
-          width: 250,
-          height: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          paddingTop: 1,
-          bgcolor: "primary.light",
-        }}
-      >
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <User_avtar img="A" />
-        </Box>
-        <Box sx={{ marginTop: 5,display:'flex',flexDirection:"column",alignItems:'center',gap:1 }}>
-          <Box sx={style.option}> <PersonIcon/> Get all user</Box>
-          <Box sx={style.option}> <HistoryIcon/>User login history</Box>
-          <Box sx={style.option}><LocalActivityIcon/>User activity</Box>
-          <Box sx={style.option}><PersonRemoveIcon/>  Delete User</Box>
-          <Box sx={style.option}><BorderColorIcon/> Create Plan</Box>
+      
 
-        </Box>
-      </Box>
+      {/* Sidebar */}
+      <SideBar/>
 
       {/* Main Section */}
       <Box sx={style.hero_section}>
@@ -74,7 +52,16 @@ const Homepage = () => {
             }}
           />
         </Box>
-
+          {/* Dashborad Section */}
+          <Box sx={{width:"100%",padding:1
+          }} >
+          <Typography variant="h4" sx={{}} >Dashborad</Typography>
+          <Box sx={{display:'flex',justifyContent:'space-around',padding:2,flexDirection:{sm:"row",xs:"column"}}} >
+          <DashboardCard infotitle={'Total downloads'} value={"50,000"} />
+          <DashboardCard infotitle={'Total active user'} value={"4,550"} />
+          <DashboardCard infotitle={'Total Earning'}  value={'200,000'} />
+          </Box>
+          </Box>
         {/* Card Section */}
         <Box sx={style.card_container}>
           {!isLoading
@@ -133,6 +120,7 @@ const style = {
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
+    border:1
   },
   card_container: {
     width: "100%",
