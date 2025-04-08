@@ -3,7 +3,7 @@ import { Box, Avatar } from "@mui/material";
 const User_avtar = ({ img = "no" }) => {
   return (
     <Box sx={style.user_avtar_container}>
-      <Avatar sx={{ bgcolor: "black" }}>{img}</Avatar>
+      <Avatar sx={{ bgcolor: "black" }} />
       Admin
     </Box>
   );

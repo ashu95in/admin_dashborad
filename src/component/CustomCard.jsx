@@ -6,12 +6,12 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const CustomCard = ({ title, description, onDelete, onUpdate, onShowMore }) => {
   return (
-    <Card sx={{  p: 1, boxShadow: 1, borderRadius: 2,bgcolor:'background.default' }}>
+    <Card sx={{  p: 1, boxShadow: 1, borderRadius: 2,bgcolor:'rgba(246, 246, 246, 0.71)' }}>
       <CardContent  >
         <Typography  gutterBottom sx={{fontWeight:500,fontSize:'1.1rem'}} >
           {title}
         </Typography>
-        <Typography variant="p" color="text.secondary" sx={{fontSize:".9rem",border:1,borderColor:'#fff'}} >
+        <Typography variant="p" color="text.secondary" sx={{fontSize:".9rem",borderColor:'#fff'}} >
           {description}
         </Typography>
       </CardContent>

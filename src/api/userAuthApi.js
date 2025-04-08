@@ -1,22 +1,16 @@
-export const hitLoginApi = async (loginData,func) => {
-    func(true);
-    if(loginData.userName=="ashutosh95"&&loginData.password=='123456789'||true){
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            status:true,
-            msg: "Login successful! Hello, user.",
-            token: "sdf4s64f56465s4df45",
-          });
-        }, 1000);
-      });
+import { baseUrl } from "./var";
+import axios from "axios";
 
-    } 
-    else{
-      return {
-        status:false,
-        msg:'login fail'
-      }
-    }
 
-  };
+export const  logIn = async (loginData)=>{
+        try{
+          
+            const resp =await  axios.post(`${baseUrl}admin/login`,loginData)
+            console.log(resp)
+            return resp.data
+            
+        }catch(eror){
+          console.error("login failed")
+          return false
+        }
+}
